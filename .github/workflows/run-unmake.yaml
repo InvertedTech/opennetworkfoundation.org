@@ -1,0 +1,74 @@
+name: Run Unmake
+
+on:
+  push:
+    branches:
+      - '**'
+
+    paths:
+      - .github/workflows/run-unmake.yaml
+      - sources/**
+      - artifacts/**
+      - index/**
+      - meta/**
+
+jobs:
+  run-unmake:
+    name:    Run Unmake
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Update apt
+        run:  sudo apt update
+
+      - name: Install deps
+        run:  sudo apt install pandoc jq ffmpeg texlive-latex-base texlive-latex-recommended texlive-latex-extra
+
+      - name: Ensure we're on the gnumake 4.3
+        run: >
+          curl http://ftp.gnu.org/gnu/make/make-4.3.tar.gz > /tmp/make-4.3.tar.gz;
+          cd /tmp/;
+          sudo tar -zxvf make-4.3.tar.gz;
+          cd make-4.3;
+          sudo ./configure --prefix=/usr/local;
+          sudo make;
+          sudo make install;
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Pull submodules
+        run:  git submodule update --init --recursive
+      
+      - name: Restore Mod Times
+        run: >
+          git ls-tree -r -t --full-name --name-only HEAD | while read FILE; do {
+            TIME=`git log -1 HEAD --pretty="%ci" -- "$FILE"`;
+            echo "${TIME}" "$FILE";
+            touch -d "${TIME}" "$FILE";
+          }; done;
+
+      - name: Run unmake.
+        run:  make -sdp;
+
+      - name: Add any new files.
+        run:  git add ./artifacts/* ./index/* ./meta/*;
+
+      - name: Loop Unmake
+        run: >
+          while( test -n "$(git status -s)" ); do {
+            git -c "user.name=index-bot" -c "user.email=index-bot@seanmorr.is" commit -nam 'Indexing content.';
+            git push;
+            make;
+            git add ./artifacts/* ./index/* ./meta/*;
+          } done;
+
+      - name: Commit & push any if changes are found
+        run: >
+          test -n "$(git status -s)" && {
+            git \
+              -c "user.name=index-bot" \
+              -c "user.email=index-bot@seanmorr.is" \
+              commit -nam 'Indexing content.';
+            git push || true;
+          } || true;
