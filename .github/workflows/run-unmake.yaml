@@ -7,10 +7,7 @@ on:
 
     paths:
       - .github/workflows/run-unmake.yaml
-      - sources/**
-      - artifacts/**
-      - index/**
-      - meta/**
+      - articles/**
 
 jobs:
   run-unmake:
