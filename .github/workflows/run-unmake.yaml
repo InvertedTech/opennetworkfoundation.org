@@ -50,7 +50,7 @@ jobs:
         run:  make -sdp;
 
       - name: Add any new files.
-        run:  git add ./artifacts/* ./index/* ./meta/*;
+        run:  git add ./docs/**
 
       - name: Loop Unmake
         run: >
@@ -58,7 +58,7 @@ jobs:
             git -c "user.name=index-bot" -c "user.email=index-bot@seanmorr.is" commit -nam 'Indexing content.';
             git push;
             make;
-            git add ./artifacts/* ./index/* ./meta/*;
+            git add ./docs/**
           } done;
 
       - name: Commit & push any if changes are found
