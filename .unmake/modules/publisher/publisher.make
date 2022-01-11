@@ -2,7 +2,7 @@
 SHELL=/usr/bin/env bash -euo pipefail
 
 outbox/%.html: inbox/%.md
-	pandoc "$<" -o "$@"
+	pandoc -s "$<" --template ../fragments/layout.html -o "$@"
 
 outbox/%.html: inbox/%.txt
-	pandoc "$<" -o "$@"
+	pandoc -s "$<" --template ../fragments/layout.html -o "$@"
