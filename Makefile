@@ -7,6 +7,7 @@ all: targets
 include .unmake/unmake/Makefile
 
 $(call IMPORT_MODULE,publisher)
+$(call IMPORT_MODULE,indexer)
 
 targets: unmake-index ${UNMAKE_TARGETS}
 

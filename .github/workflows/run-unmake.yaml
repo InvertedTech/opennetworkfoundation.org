@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Update apt
+      - name: Update apt edited
         run:  sudo apt update
 
       - name: Install deps
