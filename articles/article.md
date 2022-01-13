@@ -2,6 +2,17 @@
 title: Lorem Ipsum
 author: Sean Morris
 date: '2022-01-10'
+index:
+  - name: menu
+    weight: 0
+  - name: footer
+    weight: 0
+  - name: foo
+    weight: 0
+  - name: bar
+    weight: 0
+  - name: baz
+    weight: 0
 ...
 
 ## Si aquae maerentes saevarum potest

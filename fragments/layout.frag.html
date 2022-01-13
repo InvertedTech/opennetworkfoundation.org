@@ -1,18 +1,33 @@
 <!DOCTYPE HTML>
 <head>
-	<title>Open Network Foundation</title>
+$if(title)$
+	<title>$title$</title>
+$endif$
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	<title>Open Network Foundation</title>
+$for(author-meta)$
+	<meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+	<meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+	<meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+	<title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$for(css)$
+	<link rel="stylesheet" href="$css$" />
+$endfor$
+$if(math)$
+	$math$
+$endif$
+$for(header-includes)$
+	$header-includes$
+$endfor$
 <style>
-		code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
+		$styles.html()$
 	</style>
 </head>
 
@@ -95,34 +110,6 @@
 		<!-- Main -->
 
 				<!-- Body -->
-<!-- Banner -->
-<!-- Note: The "styleN" class below should match that of the header element. -->
-<section id="banner" class="style2">
-	<div class="inner">
-		<span class="image">
-			<img src="images/pic07.jpg" alt="" />
-		</span>
-		<header class="major">
-			<h1>As a company</h1>
-		</header>
-		<div class="content">
-			<p>We are building unique technologies with ethics as a core tenet.</p>
-		</div>
-	</div>
-</section>
-
-<!-- Main -->
-<div id="main">
-
-<!-- One -->
-<section id="one">
-	<div class="inner">
-		<header class="major">
-			<h2>What are we working on?</h2>
-		</header>
-		<p>Currently in pre-alpha development, we are creating an application that will let you upload and host your own content to a server of your choice, enable viewer subscriptions and keep your revenue.  Everyone using the software will interlink with other people using the software, utilize the Fediverse of interconnected social networks and build the metanet.</p>
-	</div>
-</section>
 
 				<!-- /Body -->
 
@@ -203,4 +190,3 @@
 		<script src="assets/js/main.js"></script>
 
 </body>
-<!-- Thu Jan 13 14:37:12 UTC 2022 -->

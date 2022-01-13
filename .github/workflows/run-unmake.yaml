@@ -16,14 +16,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Update apt
+      - name: Update apt edited
         run:  sudo apt update
 
       - name: Install deps
         run:  >
           sudo apt install pandoc jq ffmpeg texlive-latex-base texlive-latex-recommended texlive-latex-extra;
-          wget https://github.com/jgm/pandoc/releases/download/2.16.2/pandoc-2.16.2-1-amd64.deb;
-          sudo dpkg -i pandoc-2.16.2-1-amd64.deb
+          wget https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-1-amd64.deb;
+          sudo dpkg -i pandoc-2.9.2.1-1-amd64.deb;
+          sudo cpan install HTML::Template YAML::XS
 
       - name: Ensure we're on the gnumake 4.3
         run: >
@@ -57,11 +58,14 @@ jobs:
 
       - name: Loop Unmake
         run: >
+          LOOPS=5;
           while( test -n "$(git status -s)" ); do {
             git -c "user.name=index-bot" -c "user.email=index-bot@seanmorr.is" commit -nam 'Indexing content.';
             git push;
             make;
-            git add ./docs/**
+            git add ./docs/**;
+            ((LOOPS--));
+            [[ $LOOPS == 0 ]] && break;
           } done;
 
       - name: Commit & push any if changes are found
