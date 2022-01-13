@@ -1,0 +1,20 @@
+<head>
+<script src = "https://unpkg.com/curvature@0.0.66-q/dist/curvature.js"></script>
+<script src = "https://unpkg.com/matrix-api@0.0.0-f/dist/matrix-api.js"></script>
+<script>
+const Matrix = require('matrix-api/Matrix').Matrix;
+
+// On a page served from /accept-sso
+
+const baseUrl = 'https://matrix.org/_matrix';
+const matrix  = new Matrix(baseUrl);
+
+// Get the loginToken from the query string.
+const query = new URLSearchParams(location.search);
+const token = query.get('loginToken');
+
+// Complete the SSO and close the window.
+matrix.completeSso(token);
+
+</script>
+</head>
