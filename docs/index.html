@@ -7,7 +7,24 @@
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	<script src = "https://unpkg.com/curvature@0.0.66-q/dist/curvature.js"></script>
 	<script src = "https://unpkg.com/matrix-api@0.0.0-f/dist/matrix-api.js"></script>
-	<script src = "/matrix.js"></script>
+	<script src = "https://unpkg.com/matrix-api@0.0.0-f/dist/matrix-api.js"></script>
+	<script type="text/javascript">
+	{   // Allow the page to be served from a github.io
+		// or a custom domain.
+		document.open();
+		document.write('<'+'script type="text/javascript" src = "'
+			+ document.location.origin
+			+ (location.origin.match(/\.github\.io$/)
+				? '/opennetworkfoundation/matrix.js'
+				: '/matrix.js'
+			)
+			+ '"</' + 'script>'
+		);
+		document.close();
+	}
+	</script>
+	<script src="assets/js/jquery.min.js"></script>
+
 	<title>Open Network Foundation</title>
 <style>
 		code{white-space: pre-wrap;}
@@ -301,3 +318,4 @@
 		<script src="assets/js/main.js"></script>
 
 </body>
+<!-- Thu 13 Jan 2022 11:33:19 AM EST -->
