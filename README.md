@@ -62,9 +62,16 @@ The system will simply process any `.html` files found in `articles/` into pages
 
 `.url` files are a bit different. They're not actually pages, but external links. They consist of a header (above) and a url. Thats it. Once you've got the external links in the index, they can appear in menus and even be sorted with the `weight` property.
 
+### See also
+
+Markdown reference: https://www.markdownguide.org/basic-syntax/
+Current Public Site: https://opennetworkfoundation.github.io/opennetworkfoundation.org/
+
+
 #### todo:
 
 * Add image cropper & media processor.
 * Figure out what to do with the contact form (heroku? aws?).
 * Social media links in footer should be linked or removed.
-*
+* Apply cloudflare cache to ensure no hug of death occurs on pages.
+
