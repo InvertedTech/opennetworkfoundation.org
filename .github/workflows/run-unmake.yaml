@@ -58,11 +58,14 @@ jobs:
 
       - name: Loop Unmake
         run: >
+          LOOPS=5;
           while( test -n "$(git status -s)" ); do {
             git -c "user.name=index-bot" -c "user.email=index-bot@seanmorr.is" commit -nam 'Indexing content.';
             git push;
             make;
-            git add ./docs/**
+            git add ./docs/**;
+            ((LOOPS--));
+            [[ $LOOPS == 0 ]] && break;
           } done;
 
       - name: Commit & push any if changes are found
