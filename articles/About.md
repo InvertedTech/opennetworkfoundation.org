@@ -3,9 +3,9 @@ Author: Ian Crossland, Alex Haussmann
 title: About
 index:
   - name: top-bar
-    weight: 0
+    weight: -900
   - name: menu
-    weight: 0
+    weight: -900
 ...
 
 ## We are building unique technologies with ethics as a core tenet.
