@@ -1,17 +1,17 @@
 [
   {
-    "article": "articles/index.html"
-  },
-  {
-    "article": "articles/source-code.url"
-  },
-  {
-    "article": "articles/article.md"
+    "article": "articles/new-page.md"
   },
   {
     "article": "articles/About.md"
   },
   {
-    "article": "articles/new-page.md"
+    "article": "articles/index.html"
+  },
+  {
+    "article": "articles/article.md"
+  },
+  {
+    "article": "articles/source-code.url"
   }
 ]
