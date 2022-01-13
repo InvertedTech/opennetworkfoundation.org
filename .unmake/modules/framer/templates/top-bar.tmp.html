@@ -1,0 +1,8 @@
+<TMPL_LOOP NAME='pages'>
+<TMPL_IF NAME="external">
+	<a href="<TMPL_VAR NAME='url'>" title = "<TMPL_VAR NAME='title'>" target = "_blank"><TMPL_VAR NAME='short_title'></a>
+<TMPL_ELSE>
+	<a href="<TMPL_VAR NAME='url'>" title = "<TMPL_VAR NAME='title'>"><TMPL_VAR NAME='short_title'></a>
+</TMPL_IF>
+</TMPL_LOOP>
+<a href="#menu"></a>

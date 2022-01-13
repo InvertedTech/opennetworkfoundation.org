@@ -1,18 +1,33 @@
 <!DOCTYPE HTML>
 <head>
-	<title>Open Network Foundation</title>
+$if(title)$
+	<title>$title$</title>
+$endif$
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	<title>Open Network Foundation</title>
+$for(author-meta)$
+	<meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+	<meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+	<meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+	<title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$for(css)$
+	<link rel="stylesheet" href="$css$" />
+$endfor$
+$if(math)$
+	$math$
+$endif$
+$for(header-includes)$
+	$header-includes$
+$endfor$
 <style>
-		code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
+		$styles.html()$
 	</style>
 </head>
 <body class="is-preload">
@@ -87,133 +102,48 @@
 
 		<!-- Main -->
 
+		<div id="main" class="alt">
+			<section id="one">
+				<div class="inner">
+
 				<!-- Body -->
-<section id="banner" class="major">
-	<div class="inner">
-		<header class="major">
-			<h1>What is the Open Network Foundation?</h1>
-		</header>
-		<div class="content">
-			<p>ONF is 501(c)(3) non-profit organization, focused on building Free and open source technology for the next generation of internet compatability. <br />
-			</p>
+$for(include-before)$
+$include-before$
+$endfor$
 
-			<ul class="actions">
-				<li><a href="#one" class="button next scrolly">Advance</a></li>
-			</ul>
+$if(title)$
+$if(date)$
+	<span class="date">$date$</span>
+$endif$
+	<header class="major">
+		<h1 class="title">$title$</h1>
+$if(subtitle)$
+	<span class="subtitle">$subtitle$</span>
+$endif$
+$for(author)$
+	<span class="author">$author$</span>
+$endfor$
+	</header>
+$endif$
 
-		</div>
-	</div>
-</section>
+$if(toc)$
+	<nav id="$idprefix$TOC" role="doc-toc">
+$if(toc-title)$
+	<h2 id="$idprefix$toc-title">$toc-title$</h2>
+$endif$
+$table-of-contents$
+	</nav>
+$endif$
 
-<!-- Main -->
-<div id="main">
+$body$
 
-	<!-- One -->
-	<section id="one" class="tiles">
-		
-		<article>
-
-			<span class="image">
-				<img src="images/pic01.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">About</a></h3>
-				<p>The technology</p>
-			</header>
-
-		</article>
-		
-		<article>
-
-			<span class="image">
- 				<img src="images/pic02.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">Ecosystem</a></h3>
-				<p>services and & tools of the Open Network Foundation</p>
-			</header>
-
-		</article>
-		
-		<article>
-
-			<span class="image">
-				<img src="images/pic03.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">Developing our Mission</a></h3>
-				<p>The Future will be Bright. Here is Why....</p>
-			</header>
-
-		</article>
-		
-		<article>
-
-			<span class="image">
-				<img src="images/pic04.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">Demo</a></h3>
-				<p>Get a sneak peak of The Open Network Foundation today.</p>
-			</header>
-
-		</article>
-		
-		<article>
-
-			<span class="image">
-				<img src="images/pic05.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">Open Network Foundation Projects</a></h3>
-				<p>using our technology</p>
-			</header>
-
-		</article>
-		
-		<article>
-
-			<span class="image">
-				<img src="images/pic06.jpg" alt="" />
-			</span>
-
-			<header class="major">
-				<h3><a href="landing.html" class="link">Team</a></h3>
-				<p>Alliance of Programmers and Developers working in the Open Network Foundation.</p>
-			</header>
-
-		</article>
-
-	</section>
-
-	<!-- Two -->
-	<section id="two">
-
-		<div class="inner">
-
-			<header class="major">
-				<h2>Get Involved</h2>
-			</header>
-
-			<p>Have a suggestion or a question? let us know. Get involved even just by finding out more. The Open Network Foundation is an ambitious project and it needs the help of people like you.</p>
-
-			<ul class="actions">
-				<li><a href="landing.html" class="button next">Advance</a></li>
-			</ul>
-
-		</div>
-
-	</section>
-
-</div>
-
+$for(include-after)$
+$include-after$
+$endfor$
 				<!-- /Body -->
 
+			</section>
+		</div>
 				<!-- Contact -->
 <section id="contact">
 	<div class="inner">
@@ -278,8 +208,8 @@
 </footer>
 
 				<!-- /Footer -->
+				</div>
 	</div>
-
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -288,5 +218,4 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 </body>

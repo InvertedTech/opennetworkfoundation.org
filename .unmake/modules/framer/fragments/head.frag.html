@@ -1,0 +1,31 @@
+<head>
+$if(title)$
+	<title>$title$</title>
+$endif$
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+$for(author-meta)$
+	<meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+	<meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+	<meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+	<title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$for(css)$
+	<link rel="stylesheet" href="$css$" />
+$endfor$
+$if(math)$
+	$math$
+$endif$
+$for(header-includes)$
+	$header-includes$
+$endfor$
+<style>
+		$styles.html()$
+	</style>
+</head>

@@ -3,7 +3,7 @@ title: Lorem Ipsum
 author: Sean Morris
 date: '2022-01-10'
 index:
-  - name: topBar
+  - name: menu
     weight: 0
   - name: footer
     weight: 0

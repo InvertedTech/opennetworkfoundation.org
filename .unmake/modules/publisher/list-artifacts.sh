@@ -6,5 +6,5 @@ while read -r FILENAME; do
 
 	BASENAME=`basename "${FILENAME}"`;
 
-	echo  "./docs/${BASENAME%.*}.html";
+	echo  "docs/${BASENAME%.*}.html";
 done
