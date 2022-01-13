@@ -16,7 +16,7 @@ document.addEventListener('click', event => {
 	// Open the login popup, targetting the url from the first step:
 
 	const redirectUrl = location.origin.match(/github.io$/)
-		? location.origin + 'opennetworkfoundation.org/accept-sso'
+		? location.origin + '/opennetworkfoundation.org/accept-sso'
 		: location.origin + '/accept-sso';
 
 	matrix.initSso(redirectUrl);
