@@ -7,8 +7,8 @@ use Data::Dumper;
 use HTML::Template;
 use File::Basename;
 
-my $indexFile = $ARGV[1] || './index/footer.json';
 my $htmlFile  = $ARGV[0] || './fragments/top-bar.tmp.html';
+my $indexFile = $ARGV[1] || './index/footer.json';
 
 my $index = YAML::XS::LoadFile($indexFile);
 my $html  = HTML::Template->new(filename => $htmlFile, die_on_bad_params => 0);

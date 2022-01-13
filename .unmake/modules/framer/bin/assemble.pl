@@ -7,7 +7,7 @@ use Data::Dumper;
 use HTML::Template;
 use File::Basename;
 
-my $htmlFile = $ARGV[0] || '.unmake/modules/framer/fragments/layout.frag.html';
+my $htmlFile = $ARGV[0] || './fragments/layout.frag.html';
 my $bodyFile = $ARGV[1] || 0;
 
 my $html = HTML::Template->new(filename => $htmlFile, die_on_bad_params => 0);
@@ -32,3 +32,5 @@ if($bodyFile)
 }
 
 print $html->output;
+
+my $time = time;
