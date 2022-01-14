@@ -21,6 +21,7 @@ index:
     weight: -100
 ...
 ```
+**NOTE:** A header must begin with the `---` line and end with the `...` line. the normal page content can proceed after this point.
 
 ### Indexing
 
@@ -38,7 +39,6 @@ index:
     weight: -100
   - name: top-bar
     weight: -100
-
 ```
 
 #### weights
@@ -46,9 +46,6 @@ index:
 The header can specify a `weight` property for each index the page should be listed in.
 
 ### Types:
-
-
-**NOTE:** That a header must begin with the `---` line and end with the `...` line. the normal page content can proceed after this point.
 
 #### plantext & markdown (.txt / .md)
 
